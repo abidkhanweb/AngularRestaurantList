@@ -1,0 +1,108 @@
+<div class="menu-list">
+        <!-- <div *ngFor="let starter of starters">
+            {{starter.name}}{{starter.price}}<br>
+            <input type="checkbox" [checked]="starter.check">
+        </div> -->
+
+
+        
+    <div class="form-group">
+        <!-- <div class="form-check" *ngFor="let tag of tags; let i = index;">
+            <label class="form-check-label" for="tag{{tag.value}}">
+                <input class="form-check-input" type="checkbox" id="tag{{tag.value}}" name="tagOptions" (change)="changeCheckbox(i)"
+                    [checked]="tag.checked">
+                {{tag.name}}
+            </label>
+        </div> -->
+
+        <div class="container-fluid">
+            <div class="rest-title bg-primary row">
+                <div class="col-md-6">
+                    {{restName}}
+                </div>
+                <div class="col-md-3">
+                    <select [(ngModel)]="selectedNav" class="form-control" (change)="setNav(selectedNav)" placeholder="Quantity">
+                        <option *ngFor="let cat of catName" [value]="cat">{{cat}}</option>
+                    </select>
+                </div>
+                <span class="search-box col-md-3">
+                    <input type="text" class="form-control" placeholder="Search">
+                </span>
+            </div>
+        </div>
+
+        
+        <div class="filteredItem">{{filteredItemPrices(filteredItemPrice)}}</div>
+        <div class="item" *ngIf="category == 'Starter'">
+            <ul>
+               
+                <li *ngFor="let starter of starters,let i= index" (click)="addItem(starter.name,starter.price)">
+                    <span class="checkbox"><input type="checkbox" [checked]="starter.check" (click)="hitCheckbox()"></span>
+                    <span class="dish">{{starter.name}}</span>
+                    <span class="price">{{starter.price}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="item" *ngIf="category == 'Chicken'">
+            <ul>
+                <li *ngFor="let chicken of chickens, let i= index">
+                    <span class="checkbox"><input type="checkbox" [checked]="chicken.check"></span>
+                    <span class="dish">{{chicken.name}}</span>
+                    <span class="price">{{chicken.price}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="item" *ngIf="category == 'Paneer'">
+            <ul>
+                <li *ngFor="let paneer of paneers,let i= index">
+                    <span class="checkbox"><input type="checkbox"[checked]="paneer.check"></span>
+                    <span class="dish">{{paneer.name}}</span>
+                    <span class="price">{{paneer.price}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="item" *ngIf="category == 'Mutton'">
+            <ul>
+                <li *ngFor="let mutton of muttons,let i= index">
+                    <span class="checkbox"><input type="checkbox"[checked]="mutton.check"></span>
+                    <span class="dish">{{mutton.name}}</span>
+                    <span class="price">{{mutton.price}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="item" *ngIf="category == 'Egg'">
+            <ul>
+                <li *ngFor="let egg of eggs,let i= index">
+                    <span class="checkbox"><input type="checkbox" [checked]="egg.check"></span>
+                    <span class="dish">{{egg.name}}</span>
+                    <span class="price">{{egg.price}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="item" *ngIf="category == 'Sweet'">
+            <ul>
+                <li *ngFor="let sweet of sweets, let i= index">
+                    <span class="checkbox"><input type="checkbox" [checked]="sweet.check"></span>
+                    <span class="dish">{{sweet.name}}</span>
+                    <span class="price">{{sweet.price}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="item" *ngIf="category == 'Drink'">
+            <ul>
+                <li *ngFor="let drink of drinks, let i= index">
+                    <span class="checkbox"><input type="checkbox" [checked]="drink.check"></span>
+                    <span class="dish">{{drink.name}}</span>
+                    <span class="price">{{drink.price}}</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

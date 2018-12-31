@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="currency-convertor row">
+  
+        <div class="item col-md-4">
+            <span>1000 x </span>
+            <span><input type="text" class="form-control" [(ngModel)]="crOne"></span>
+        </div>
+        <div class="item col-md-4">
+            <span>500 x </span>
+            <span><input type="text" class="form-control" [(ngModel)]="crTwo"></span>
+        </div>
+        <div class="item button col-md-3">
+            <span>Result: {{result}}</span><br>
+            <button class="btn btn-info" (click)="total()">Convert</button>
+        </div>
+        <div class="item col-md-1">
+            <span>Remainder </span><br>
+            <span>{{remainder}}</span>
+        </div>
+    
+    </div>
+</div>
