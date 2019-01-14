@@ -1,17 +1,25 @@
 import { Component,Input,Pipe } from '@angular/core';
-import { discoverDirectives } from '@angular/core/src/render3/context_discovery';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  //providers: [MenulistService]
 })
 export class AppComponent {
+  
   title = 'ngDashboard';
 
   changeText(){
     this.title ? "Hi Angular":"ngDashboard";
   }
+
+  starters:any [];
+  /*constructor (private _MenuListService : MenulistService){
+    this.starters = _MenuListService.starters;
+  }*/
+
+  
 
   public hereos = ["IRONMAN", "CAPTAIN AMERICA","WONDER WOMAN","THOR","HULK","AQUAMAN"];
   onload(){
@@ -63,5 +71,5 @@ export class AppComponent {
   }
 }
 
-let calls = new AppComponent();
-calls.onload();
+//let calls = new AppComponent();
+//calls.onload();
