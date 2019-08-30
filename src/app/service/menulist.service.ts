@@ -16,7 +16,8 @@ export class MenulistService{
         { id:6, name: 'starter6', price: '150.00', check: false },
         { id:7, name: 'starter7', price: '600.00', check: false },
         { id:8, name: 'starter8', price: '475.00', check: false },
-        { id:9, name: 'starter9', price: '150.00', check: false }
+        { id:9, name: 'starter9', price: '150.00', check: false },
+        { id:10, name: 'starter10', price: '100.00', check: false }
     ];
 
     chickens:any = [
