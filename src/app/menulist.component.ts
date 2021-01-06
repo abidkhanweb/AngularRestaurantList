@@ -53,7 +53,7 @@ export class MenuListComponent implements OnInit {
         }
     }
 
-    restName: string = "Menu List";
+    restName: string = "Ghausiya Restaurant";
     filteredItem: [];
     filteredItemPrice: any = 0;
     

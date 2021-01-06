@@ -27,14 +27,21 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/bootstrap/scss/bootstrap.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/jquery.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              
+              
+            ]
           },
           "configurations": {
             "production": {
               "fileReplacements": [
-                {
+                { 
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
@@ -84,6 +91,8 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "src/styles.scss"
+
+
             ],
             "scripts": [],
             "assets": [
