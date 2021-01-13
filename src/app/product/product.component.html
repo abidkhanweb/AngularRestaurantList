@@ -1,9 +1,327 @@
 <div class="container">
     <div class="row">
+
+        <div class="col-12 ">
+            <div [ngSwitch]="foodCategory">
+                <div *ngSwitchCase="'starter'">Starter</div>
+                <div *ngSwitchCase="'chicken'">Chicken</div>
+                <div *ngSwitchCase="'paneer'">Paneer</div>
+                <div *ngSwitchCase="'mutton'">Mutton</div>
+                <div *ngSwitchCase="'egg'">Egg</div>
+                <div *ngSwitchCase="'dessert'">Dessert</div>
+                <div *ngSwitchDefault>Drink</div>
+            </div>
+
+            <!--  -->
+        </div>
+
         <div class="col-12">
-            <div ng-switch="">
-                
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link active" href="#" (click)="foodCategory = 'starter'">Starter</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'chicken'">Chicken</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'paneer'">Paneer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'mutton'">Mutton</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'egg'">Egg</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'dessert'">Dessert</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'drink'">Drinks</a></li>
+              </ul>
+        </div>
+        
+        
+        <!-- Product -->
+        <div class="col-12" [ngSwitch]="foodCategory">
+
+            <div class="row" *ngSwitchCase="'starter'">
+                <div class="col-3" *ngFor="let starter of starters">
+                    <div class="product-list">
+                        <div class="list">
+                            <div class="img">
+                                <img src="{{starter.src}}" class="img-fluid">
+                            </div>
+                            <h2>{{starter.name}}</h2>
+                            <p>{{starter.description}}</p>
+                            <ul class="feature">
+                                <li>
+                                    <span class="category">Category</span>
+                                    <span>{{starter.category}}</span>
+                                </li>
+                                <li>
+                                    <span class="availibility">Availibility</span>
+                                    <span>{{starter.availibility}}</span>
+                                </li>
+                                <li>
+                                    <span class="weight">Weight</span>
+                                    <span>{{starter.weight}}</span>
+                                </li>
+                                <li>
+                                    <span class="vegetarian">Vegetarian</span>
+                                    <span>{{starter.isVeg}}</span>
+                                </li>
+                            </ul>
+                            <div class="cust-review">
+                                <span>Customer Review</span>
+                                <span class="rating">
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </span>
+                            </div>
+                            <div class="cust-review">
+                                <span>{{starter.price}}</span>
+                                <span class="action">
+                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngSwitchCase="'chicken'">
+                <div class="col-3" *ngFor="let chicken of chickens">
+                    <div class="product-list">
+                        <div class="list">
+                            <div class="img">
+                                <img src="{{chicken.src}}" class="img-fluid">
+                            </div>
+                            <h2>{{chicken.name}}</h2>
+                            <p>{{chicken.description}}</p>
+                            <ul class="feature">
+                                <li>
+                                    <span class="category">Category</span>
+                                    <span>{{chicken.category}}</span>
+                                </li>
+                                <li>
+                                    <span class="availibility">Availibility</span>
+                                    <span>{{chicken.availibility}}</span>
+                                </li>
+                                <li>
+                                    <span class="weight">Weight</span>
+                                    <span>{{chicken.weight}}</span>
+                                </li>
+                                <li>
+                                    <span class="vegetarian">Vegetarian</span>
+                                    <span>{{chicken.isVeg}}</span>
+                                </li>
+                            </ul>
+                            <div class="cust-review">
+                                <span>Customer Review</span>
+                                <span class="rating">
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </span>
+                            </div>
+                            <div class="cust-review">
+                                <span>{{chicken.price}}</span>
+                                <span class="action">
+                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--  
+        <div class="col-12">
+            <div class="row" >
+                <div class="col-3">
+                    <div class="product-list">
+                        <div class="list">
+                            <div class="img">
+                                <img src="assets/res-1.jpg" class="img-fluid">
+                            </div>
+                            <h2>Snack Set</h2>
+                            <p>Butter, cream, honey, salty cottage cheese, white cheese.</p>
+                            <ul class="feature">
+                                <li>
+                                    <span class="category">Category</span>
+                                    <span>Breakfast</span>
+                                </li>
+                                <li>
+                                    <span class="availibility">Availibility</span>
+                                    <span>Available</span>
+                                </li>
+                                <li>
+                                    <span class="weight">Weight</span>
+                                    <span>160 gm</span>
+                                </li>
+                                <li>
+                                    <span class="vegetarian">Vegetarian</span>
+                                    <span>No</span>
+                                </li>
+                            </ul>
+                            <div class="cust-review">
+                                <span>Customer Review</span>
+                                <span class="rating">
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </span>
+                            </div>
+                            <div class="cust-review">
+                                <span>$8.20</span>
+                                <span class="action">
+                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="product-list">
+                        <div class="list">
+                            <div class="img">
+                                <img src="assets/res-1.jpg" class="img-fluid">
+                            </div>
+                            <h2>Snack Set</h2>
+                            <p>Butter, cream, honey, salty cottage cheese, white cheese.</p>
+                            <ul class="feature">
+                                <li>
+                                    <span class="category">Category</span>
+                                    <span>Breakfast</span>
+                                </li>
+                                <li>
+                                    <span class="availibility">Availibility</span>
+                                    <span>Available</span>
+                                </li>
+                                <li>
+                                    <span class="weight">Weight</span>
+                                    <span>160 gm</span>
+                                </li>
+                                <li>
+                                    <span class="vegetarian">Vegetarian</span>
+                                    <span>No</span>
+                                </li>
+                            </ul>
+                            <div class="cust-review">
+                                <span>Customer Review</span>
+                                <span class="rating">
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </span>
+                            </div>
+                            <div class="cust-review">
+                                <span>$8.20</span>
+                                <span class="action">
+                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="product-list">
+                        <div class="list">
+                            <div class="img">
+                                <img src="assets/res-1.jpg" class="img-fluid">
+                            </div>
+                            <h2>Snack Set</h2>
+                            <p>Butter, cream, honey, salty cottage cheese, white cheese.</p>
+                            <ul class="feature">
+                                <li>
+                                    <span class="category">Category</span>
+                                    <span>Breakfast</span>
+                                </li>
+                                <li>
+                                    <span class="availibility">Availibility</span>
+                                    <span>Available</span>
+                                </li>
+                                <li>
+                                    <span class="weight">Weight</span>
+                                    <span>160 gm</span>
+                                </li>
+                                <li>
+                                    <span class="vegetarian">Vegetarian</span>
+                                    <span>No</span>
+                                </li>
+                            </ul>
+                            <div class="cust-review">
+                                <span>Customer Review</span>
+                                <span class="rating">
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </span>
+                            </div>
+                            <div class="cust-review">
+                                <span>$8.20</span>
+                                <span class="action">
+                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="product-list">
+                        <div class="list">
+                            <div class="img">
+                                <img src="assets/res-1.jpg" class="img-fluid">
+                            </div>
+                            <h2>Snack Set</h2>
+                            <p>Butter, cream, honey, salty cottage cheese, white cheese.</p>
+                            <ul class="feature">
+                                <li>
+                                    <span class="category">Category</span>
+                                    <span>Breakfast</span>
+                                </li>
+                                <li>
+                                    <span class="availibility">Availibility</span>
+                                    <span>Available</span>
+                                </li>
+                                <li>
+                                    <span class="weight">Weight</span>
+                                    <span>160 gm</span>
+                                </li>
+                                <li>
+                                    <span class="vegetarian">Vegetarian</span>
+                                    <span>No</span>
+                                </li>
+                            </ul>
+                            <div class="cust-review">
+                                <span>Customer Review</span>
+                                <span class="rating">
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </span>
+                            </div>
+                            <div class="cust-review">
+                                <span>$8.20</span>
+                                <span class="action">
+                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+-->
+        
+
     </div>
 </div>
