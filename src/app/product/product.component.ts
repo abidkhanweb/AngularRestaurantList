@@ -11,14 +11,35 @@ export class ProductComponent implements OnInit {
 
   starters=[];
   chickens=[];
+  paneers=[];
 
   constructor(private productService:ProductService) { }
 
   foodCategory = "chicken";
 
   ngOnInit() {
-    this.starters = this.productService.getStarter();
-    this.chickens = this.productService.getChicken();
+
+    this.productService.getStarter().subscribe((data:any)=>{
+      this.starters = data;
+    });
+
+    this.productService.getChicken().subscribe((data:any)=>{
+      this.chickens = data;
+    });
+
+    this.productService.getPaneer().subscribe((data:any)=>{
+      this.paneers = data;
+    })
+
+
+
+
+
+
+
+
+
+
   }
 
 }

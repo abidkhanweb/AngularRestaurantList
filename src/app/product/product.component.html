@@ -12,11 +12,11 @@
                 <div *ngSwitchDefault>Drink</div>
             </div>
 
-            <!--  -->
+            
         </div>
 
         <div class="col-12">
-            <ul class="nav">
+            <ul class="nav tabs">
                 <li class="nav-item"><a class="nav-link active" href="#" (click)="foodCategory = 'starter'">Starter</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'chicken'">Chicken</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'paneer'">Paneer</a></li>
@@ -27,7 +27,7 @@
               </ul>
         </div>
         
-        
+
         <!-- Product -->
         <div class="col-12" [ngSwitch]="foodCategory">
 
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="row" *ngSwitchCase="'chicken'">
                 <div class="col-3" *ngFor="let chicken of chickens">
                     <div class="product-list">
@@ -119,6 +119,55 @@
                             </div>
                             <div class="cust-review">
                                 <span>{{chicken.price}}</span>
+                                <span class="action">
+                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" *ngSwitchCase="'paneer'">
+                <div class="col-3" *ngFor="let paneer of paneers">
+                    <div class="product-list">
+                        <div class="list">
+                            <div class="img">
+                                <img src="{{paneer.src}}" class="img-fluid">
+                            </div>
+                            <h2>{{paneer.name}}</h2>
+                            <p>{{paneer.description}}</p>
+                            <ul class="feature">
+                                <li>
+                                    <span class="category">Category</span>
+                                    <span>{{paneer.category}}</span>
+                                </li>
+                                <li>
+                                    <span class="availibility">Availibility</span>
+                                    <span>{{paneer.availibility}}</span>
+                                </li>
+                                <li>
+                                    <span class="weight">Weight</span>
+                                    <span>{{paneer.weight}}</span>
+                                </li>
+                                <li>
+                                    <span class="vegetarian">Vegetarian</span>
+                                    <span>{{paneer.isVeg}}</span>
+                                </li>
+                            </ul>
+                            <div class="cust-review">
+                                <span>Customer Review</span>
+                                <span class="rating">
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                    <span>*</span>
+                                </span>
+                            </div>
+                            <div class="cust-review">
+                                <span>{{paneer.price}}</span>
                                 <span class="action">
                                     <span><a href="#"><i class="fa fa-heart"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
