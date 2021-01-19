@@ -11,19 +11,18 @@
                 <div *ngSwitchCase="'dessert'">Dessert</div>
                 <div *ngSwitchDefault>Drink</div>
             </div>
-
-            
+    
         </div>
 
         <div class="col-12">
             <ul class="nav tabs">
-                <li class="nav-item"><a class="nav-link active" href="#" (click)="foodCategory = 'starter'">Starter</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'chicken'">Chicken</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'paneer'">Paneer</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'mutton'">Mutton</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'egg'">Egg</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'dessert'">Dessert</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'drink'">Drinks</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#" (click)="foodCategory = 'starter'" [ngClass]="{'active': foodCategory == 'starter' }">Starter</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'chicken'" [ngClass]="{ 'active': foodCategory == 'chicken' }">Chicken</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'paneer'" [ngClass]="{ 'active': foodCategory == 'paneer' }">Paneer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'mutton'" [ngClass]="{ 'active': foodCategory == 'mutton' }">Mutton</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'egg'" [ngClass]="{ 'active': foodCategory == 'egg' }">Egg</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'dessert'" [ngClass]="{ 'active': foodCategory == 'dessert' }">Dessert</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'drink'" [ngClass]="{ 'active': foodCategory == 'drink' }">Drinks</a></li>
               </ul>
         </div>
         
@@ -36,9 +35,11 @@
                     <div class="product-list">
                         <div class="list">
                             <div class="img">
-                                <img src="{{starter.src}}" class="img-fluid">
+                                <a (click)="goToProduct(starter.id)" href="javascript:void;">
+                                    <img src="{{starter.src}}" class="img-fluid">
+                                </a>
                             </div>
-                            <h2>{{starter.name}}</h2>
+                            <h2 (click)="goToProduct(starter.id)">{{starter.name}}</h2>
                             <p>{{starter.description}}</p>
                             <ul class="feature">
                                 <li>
@@ -74,6 +75,9 @@
                                     <span><a href="#"><i class="fa fa-heart"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
+                            </div>
+                            <div class="butttons">
+                                <a class="btn btn-lg" (click)="deleteProduct(starter.id)"><i class="fa fa-trash"></i></a>
                             </div>
                         </div>
                     </div>
