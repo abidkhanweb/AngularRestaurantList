@@ -1,3 +1,51 @@
-<p>
-  product-detail works! {{productID}}
-</p>
+<div class="col-3" *ngFor="let starter of productList">
+  <div class="product-list">
+      <div class="list">
+          <div class="img">
+              <a (click)="goToProduct(starter.id)">
+                  <img src="{{starter.src}}" class="img-fluid">
+              </a>
+          </div>
+          <h2 (click)="goToProduct(starter.id)">{{starter.name}}</h2>
+          <p>{{starter.description}}</p>
+          <ul class="feature">
+              <li>
+                  <span class="category">Category</span>
+                  <span>{{starter.category}}</span>
+              </li>
+              <li>
+                  <span class="availibility">Availibility</span>
+                  <span>{{starter.availibility}}</span>
+              </li>
+              <li>
+                  <span class="weight">Weight</span>
+                  <span>{{starter.weight}}</span>
+              </li>
+              <li>
+                  <span class="vegetarian">Vegetarian</span>
+                  <span>{{starter.isVeg}}</span>
+              </li>
+          </ul>
+          <div class="cust-review">
+              <span>Customer Review</span>
+              <span class="rating">
+                  <span>*</span>
+                  <span>*</span>
+                  <span>*</span>
+                  <span>*</span>
+                  <span>*</span>
+              </span>
+          </div>
+          <div class="cust-review">
+              <span>{{starter.price}}</span>
+              <span class="action">
+                  <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                  <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+              </span>
+          </div>
+          <div class="butttons">
+              <a class="btn btn-lg" (click)="deleteProduct(starter.id)"><i class="fa fa-trash"></i></a>
+          </div>
+      </div>
+  </div>
+</div>

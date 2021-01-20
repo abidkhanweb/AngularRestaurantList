@@ -19,6 +19,7 @@ import { HomeComponent } from './views/home/home.component';
 import { MenulistService } from './service/menulist.service';
 import { ProductService } from './service/product.service';
 import { InMemoryProductDatabase } from './db/in-memory-web-api';
+import { FavoriteProductComponent } from './favorite-product/favorite-product.component';
 
 
 
@@ -33,7 +34,8 @@ import { InMemoryProductDatabase } from './db/in-memory-web-api';
     ProductComponent,
     ProductDetailComponent,
     ViewsComponent,
-    HomeComponent,    
+    HomeComponent,
+    FavoriteProductComponent,    
   ],
   imports: [
     BrowserModule,

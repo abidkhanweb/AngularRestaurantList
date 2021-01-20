@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  favoriteCount:number=0;
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  increaseCounter(){
+    this.favoriteCount++;
   }
 
 }

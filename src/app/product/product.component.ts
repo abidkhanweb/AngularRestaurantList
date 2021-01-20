@@ -46,7 +46,7 @@ export class ProductComponent implements OnInit {
         if(this.starters[i].id===id){
           this.starters.splice(i,1);
         }
-       
+
     }
   }
 

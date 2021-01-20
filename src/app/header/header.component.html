@@ -19,7 +19,8 @@
 
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#"><i class="fa fa-heart-o"></i></a>
+                <button class="btn btn-success" (click)="increaseCounter()">Increase</button>
+                <a class="nav-link" routerLink="/favorite-list/"><i class="fa fa-heart-o"></i><span class="badge bg-danger">{{favoriteCount}}</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
