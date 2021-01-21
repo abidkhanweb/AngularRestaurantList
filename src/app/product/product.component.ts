@@ -10,13 +10,15 @@ import { ProductService } from '../service/product.service';
 
 export class ProductComponent implements OnInit {
 
-  starters=[];
+  starters=[];  
   chickens=[];
   paneers=[];
+  newArray=[{id:'5',name:'Pani Puri', src:"~/assets/starter/pani-puri.jpg",  description:'Butter, cream, honey, salty cottage cheese, white cheese.', category:'Starter Course', availaiility:'Available', weight:'230 g', isVeg:'Yes', rating:'5', price:'$100'}];
 
   constructor(private productService:ProductService, private router:Router) { }
 
   foodCategory = "starter";
+  favoriteList=[];
 
   ngOnInit() {
 
@@ -30,6 +32,10 @@ export class ProductComponent implements OnInit {
 
     this.productService.getPaneer().subscribe((data:any)=>{
       this.paneers = data;
+    });
+
+    this.productService.getFavoriteList().subscribe((data:any)=>{
+      this.paneers = data;
     })
 
 
@@ -41,13 +47,26 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl('/product-detail/'+id);  
   }
 
+  addProduct(){
+    this.starters.push(this.newArray);
+  }
+
   deleteProduct(id){
     for(let i=0;i<this.starters.length;i++){
         if(this.starters[i].id===id){
           this.starters.splice(i,1);
         }
-
-    }
+    }   
   }
+
+  addFavoriteList(id){
+    for(let i=0;i<this.starters.length;i++){
+        if(this.starters[i].id===id){
+          this.favoriteList.push(i);
+        }
+    }   
+  }
+
+  
 
 }

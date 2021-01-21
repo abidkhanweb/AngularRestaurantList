@@ -13,9 +13,11 @@ export class ProductService {
   egg=[];
   dessert=[];
   drink=[];
+  favoriteList=[];
 
 
   constructor(private http:HttpClient) { 
+    this.favoriteList =[];
     this.starter = [
       {id:'1',name:'Starter 1', src:"../assets/res-1.jpg", description:'This is description', category:'Starter Course', availaiility:'Available', weight:'230 g', isVeg:'Yes', rating:'5', price:'$100'},
       {id:'2',name:'Starter 2', src:"../assets/res-1.jpg", description:'This is description', category:'Starter Course', availaiility:'Available', weight:'230 g', isVeg:'Yes', rating:'5', price:'$100'},
@@ -41,5 +43,8 @@ export class ProductService {
   }
   getPaneer(){
     return this.http.get(this.serverUrl+'paneer');
+  }
+  getFavoriteList(){
+    return this.http.get(this.serverUrl+'favoriteList')
   }
 }

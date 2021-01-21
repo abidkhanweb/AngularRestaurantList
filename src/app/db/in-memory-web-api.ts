@@ -7,6 +7,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 export class InMemoryProductDatabase implements InMemoryDbService{
     createDb(){
+        let favoriteList = [];
         let starter = [
             {id:'1',name:'Paneer tikka', src:"../assets/starter/paneer-tikka.jpg",  description:'Butter, cream, honey, salty cottage cheese, white cheese.', category:'Starter Course', availaiility:'Available', weight:'230 g', isVeg:'Yes', rating:'5', price:'$100'},
             {id:'2',name:'Aloo tikki', src:"../assets/starter/aloo-tikki.jpg",  description:'Butter, cream, honey, salty cottage cheese, white cheese.', category:'Starter Course', availaiility:'Available', weight:'230 g', isVeg:'Yes', rating:'5', price:'$100'},
@@ -51,7 +52,7 @@ export class InMemoryProductDatabase implements InMemoryDbService{
             {id:'16',name:'Paneer Biryani',src:"../assets/paneer/paneer-biryani.jpg",  description:'Puff pastry, cheese filling, arugula, carrot, cucumber, radish.', category:'Chicken Course', availaiility:'Not Available', weight:'450 g', isVeg:'Yes', rating:'4.5', price:'$230'},
             {id:'17',name:'Paneer Kheer',src:"../assets/paneer/paneer-kheer.jpg",  description:'Puff pastry, cheese filling, arugula, carrot, cucumber, radish.', category:'Chicken Course', availaiility:'Not Available', weight:'450 g', isVeg:'Yes', rating:'4.5', price:'$230'},
           ];
-          return{starter,chicken,paneer}
+          return{starter,chicken,paneer,favoriteList}
     }
     
 }
