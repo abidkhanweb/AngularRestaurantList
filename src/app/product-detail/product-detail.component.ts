@@ -13,7 +13,7 @@ export class ProductDetailComponent implements OnInit {
   productList:[];
   constructor(private activatedRoute:ActivatedRoute, private productService:ProductService){
     
-  }
+  } 
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((response:any)=>{
@@ -27,5 +27,6 @@ export class ProductDetailComponent implements OnInit {
     })
   }
 
+  
 
 }
