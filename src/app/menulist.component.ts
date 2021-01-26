@@ -53,7 +53,7 @@ export class MenuListComponent implements OnInit {
         }
     }
 
-    restName: string = "Ghausiya Restaurant";
+    restName: string = "";
     filteredItem: [];
     filteredItemPrice: any = 0;
     
@@ -87,12 +87,12 @@ export class MenuListComponent implements OnInit {
         for(let i=0;i<this.chickens.length;i++){
             if(this.chickens[i].name === name){
                 this.chickens[i].check=!this.chickens[i].check;
-                if(this.chickens[i].check === true){
+                /*if(this.chickens[i].check === true){
                     this.filteredItemPrice += parseInt(price);
                 }
                 else if(this.chickens[i].check === false){    
                     this.filteredItemPrice -= parseInt(price);
-                }
+                }*/
             }
         }
     }
