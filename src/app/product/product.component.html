@@ -30,6 +30,7 @@
 
         <div class="badge bg-success">{{favCount}}</div>
 
+        <!-- Favorite -->
         <div class="col-3" *ngFor="let fav of favoriteList">
             <div class="product-list">
                 <div class="list">
@@ -127,7 +128,10 @@
                             <div class="cust-review">
                                 <span>{{starter.price}}</span>
                                 <span class="action">
-                                    <span><a href="#" (click)="addFavoriteList(starter.id)"><i class="fa fa-heart-o"></i></a></span>
+                                    <span><i (click)="addFavoriteList(starter.id);" class="fa" [ngClass]="{
+                                        'fa-heart active': starter.favorite,
+                                        'fa-heart-o': !starter.favorite
+                                    }"></i></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
                             </div>
@@ -430,6 +434,14 @@
         </div>
 -->
         
+        <div>
+            <i (click)="isGag()" class="fa" [ngClass]="{
+                    'fa-heart': isgags,
+                    'fa-heart-o': !isgags
+                }">
+
+            </i>
+        </div>
 
     </div>
 </div>

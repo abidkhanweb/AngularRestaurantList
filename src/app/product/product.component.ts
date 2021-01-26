@@ -21,6 +21,8 @@ export class ProductComponent implements OnInit {
   favoriteList=[];
   favCount:number;
   fav:Boolean=false;
+  addedToFav:Boolean = false;
+  isgags:Boolean = false;
 
   ngOnInit() {
 
@@ -38,12 +40,8 @@ export class ProductComponent implements OnInit {
 
     this.productService.getFavoriteList().subscribe((data:any)=>{
       this.paneers = data;
-    })
-
-
+    });
   }
-
-  
 
   goToProduct(id){
     this.router.navigateByUrl('/product-detail/'+id);  
@@ -55,21 +53,36 @@ export class ProductComponent implements OnInit {
 
   deleteProduct(id){
     for(let i=0;i<this.starters.length;i++){
-        if(this.starters[i].id===id){
-          this.starters.splice(i,1);
-        }
+      if(this.starters[i].id===id){
+        this.starters.splice(i,1);
+      }
     }   
   }
 
   addFavoriteList(id){
     for(let i=0;i<this.starters.length;i++){
-        if(this.starters[i].id===id){
+
+      if(this.starters[i].id===id){
+
+        this.starters[i].favorite = !this.starters[i].favorite;
+        if(this.starters[i].favorite===true){
           this.favoriteList.push(this.starters[i]);
         }
+        else{
+          this.favoriteList.splice(i,1);
+        }
+
+      }
+
+      this.favCount = this.favoriteList.length;
     }   
-    this.favCount = this.favoriteList.length;
-    console.log(this.favoriteList.length);
+    
   }
+
+ 
+  /*isGag(){
+    this.isgags = !this.isgags;
+  }*/
 
   
 
