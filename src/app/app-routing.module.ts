@@ -6,6 +6,7 @@ import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent, pathMatch:'full'},
+  {path:'home', component:HomeComponent},
   {path:'product-detail/:id', component:ProductDetailComponent},
   {path:'favorite-list', component:FavoriteProductComponent}
 ];

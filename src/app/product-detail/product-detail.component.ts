@@ -18,10 +18,12 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((response:any)=>{
       this.productID = response.id;
+      var id = typeof response.id;
+      console.log(id);
     });
-    
+      
     this.productService.getStarter().subscribe((response:any)=>{
-      this.productList = response.filter(item=>item.id===this.productID);
+      this.productList = response.filter(item=>item.id==this.productID);
     })
   }
 

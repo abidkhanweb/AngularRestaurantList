@@ -19,6 +19,8 @@ export class ProductComponent implements OnInit {
 
   foodCategory = "starter";
   favoriteList=[];
+  favCount:number;
+  fav:Boolean=false;
 
   ngOnInit() {
 
@@ -62,9 +64,11 @@ export class ProductComponent implements OnInit {
   addFavoriteList(id){
     for(let i=0;i<this.starters.length;i++){
         if(this.starters[i].id===id){
-          this.favoriteList.push(i);
+          this.favoriteList.push(this.starters[i]);
         }
     }   
+    this.favCount = this.favoriteList.length;
+    console.log(this.favoriteList.length);
   }
 
   

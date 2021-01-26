@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-12 ">
+        <!--<div class="col-12 ">
             <div [ngSwitch]="foodCategory">
                 <div *ngSwitchCase="'starter'">Starter</div>
                 <div *ngSwitchCase="'chicken'">Chicken</div>
@@ -12,48 +12,50 @@
                 <div *ngSwitchDefault>Drink</div>
             </div>
     
-        </div>
+        </div>-->
 
         <div class="col-12">
             <ul class="nav tabs">
-                <li class="nav-item"><a class="nav-link active" href="#" (click)="foodCategory = 'starter'" [ngClass]="{'active': foodCategory == 'starter' }">Starter</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'chicken'" [ngClass]="{ 'active': foodCategory == 'chicken' }">Chicken</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'paneer'" [ngClass]="{ 'active': foodCategory == 'paneer' }">Paneer</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'mutton'" [ngClass]="{ 'active': foodCategory == 'mutton' }">Mutton</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'egg'" [ngClass]="{ 'active': foodCategory == 'egg' }">Egg</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'dessert'" [ngClass]="{ 'active': foodCategory == 'dessert' }">Dessert</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="foodCategory = 'drink'" [ngClass]="{ 'active': foodCategory == 'drink' }">Drinks</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:;" (click)="foodCategory = 'starter'" [ngClass]="{'active':foodCategory == 'starter'}">Starter</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:;" (click)="foodCategory = 'chicken'" [ngClass]="{'active':foodCategory == 'chicken'}">Chicken</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:;" (click)="foodCategory = 'paneer'" [ngClass]="{'active':foodCategory == 'paneer' }">Paneer</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:;" (click)="foodCategory = 'mutton'" [ngClass]="{'active':foodCategory == 'mutton' }">Mutton</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:;" (click)="foodCategory = 'egg'" [ngClass]="{'active':foodCategory == 'egg' }">Egg</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:;" (click)="foodCategory = 'dessert'" [ngClass]="{'active':foodCategory == 'dessert' }">Dessert</a></li>
+                <li class="nav-item"><a class="nav-link" href="javascript:;" (click)="foodCategory = 'drink'" [ngClass]="{'active':foodCategory == 'drink' }">Drinks</a></li>
               </ul>
         </div>
         
         <div (click)="addProduct()">Add product</div>
+
+        <div class="badge bg-success">{{favCount}}</div>
 
         <div class="col-3" *ngFor="let fav of favoriteList">
             <div class="product-list">
                 <div class="list">
                     <div class="img">
                         <a (click)="goToProduct(starter.id)">
-                            <img src="{{starter.src}}" class="img-fluid">
+                            <img src="{{fav.src}}" class="img-fluid">
                         </a>
                     </div>
-                    <h2 (click)="goToProduct(starter.id)">{{starter.name}}</h2>
-                    <p>{{starter.description}}</p>
+                    <h2 (click)="goToProduct(fav.id)">{{fav.name}}</h2>
+                    <p>{{fav.description}}</p>
                     <ul class="feature">
                         <li>
                             <span class="category">Category</span>
-                            <span>{{starter.category}}</span>
+                            <span>{{fav.category}}</span>
                         </li>
                         <li>
                             <span class="availibility">Availibility</span>
-                            <span>{{starter.availibility}}</span>
+                            <span>{{fav.availibility}}</span>
                         </li>
                         <li>
                             <span class="weight">Weight</span>
-                            <span>{{starter.weight}}</span>
+                            <span>{{fav.weight}}</span>
                         </li>
                         <li>
                             <span class="vegetarian">Vegetarian</span>
-                            <span>{{starter.isVeg}}</span>
+                            <span>{{fav.isVeg}}</span>
                         </li>
                     </ul>
                     <div class="cust-review">
@@ -67,14 +69,14 @@
                         </span>
                     </div>
                     <div class="cust-review">
-                        <span>{{starter.price}}</span>
+                        <span>{{fav.price}}</span>
                         <span class="action">
-                            <span><a href="#"><i class="fa fa-heart"></i></a></span>
-                            <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
+                            <span><a href="#" *ngIf=""><i class="fa fa-heart-o"></i></a></span>
+                            <span><a href="#" [class.active]="fav"><i class="fa fa-shopping-cart"></i></a></span>
                         </span>
                     </div>
                     <div class="butttons">
-                        <a class="btn btn-lg" (click)="deleteProduct(starter.id)"><i class="fa fa-trash"></i></a>
+                        <a class="btn btn-lg" (click)="deleteProduct(fav.id)"><i class="fa fa-trash"></i></a>
                     </div>
                 </div>
             </div>
@@ -125,7 +127,7 @@
                             <div class="cust-review">
                                 <span>{{starter.price}}</span>
                                 <span class="action">
-                                    <span><a href="#" (click)="addFavoriteList(starter.id)"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#" (click)="addFavoriteList(starter.id)"><i class="fa fa-heart-o"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
                             </div>
@@ -177,7 +179,7 @@
                             <div class="cust-review">
                                 <span>{{chicken.price}}</span>
                                 <span class="action">
-                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-heart-o"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
                             </div>
@@ -226,7 +228,7 @@
                             <div class="cust-review">
                                 <span>{{paneer.price}}</span>
                                 <span class="action">
-                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-heart-o"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
                             </div>
@@ -279,7 +281,7 @@
                             <div class="cust-review">
                                 <span>$8.20</span>
                                 <span class="action">
-                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-heart-o"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
                             </div>
@@ -325,7 +327,7 @@
                             <div class="cust-review">
                                 <span>$8.20</span>
                                 <span class="action">
-                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-heart-o"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
                             </div>
@@ -371,7 +373,7 @@
                             <div class="cust-review">
                                 <span>$8.20</span>
                                 <span class="action">
-                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-heart-o"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
                             </div>
@@ -417,7 +419,7 @@
                             <div class="cust-review">
                                 <span>$8.20</span>
                                 <span class="action">
-                                    <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                                    <span><a href="#"><i class="fa fa-heart-o"></i></a></span>
                                     <span><a href="#"><i class="fa fa-shopping-cart"></i></a></span>
                                 </span>
                             </div>
